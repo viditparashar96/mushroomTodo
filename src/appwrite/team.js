@@ -55,7 +55,7 @@ export class TeamService{
     }
     async addMember(teamId,roles=["member"],userId,email){
         try {
-            var url="https://mushroom-todo.vercel.app"
+            var url="https://mushroom-todo.vercel.app/acceptinvitation"
             var phone="+919876543210"
             return await this.teams.createMembership(teamId,roles,email,undefined,undefined,url);
         } catch (error) {
