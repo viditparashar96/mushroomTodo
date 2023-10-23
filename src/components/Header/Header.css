@@ -1,0 +1,15 @@
+.menu-mobile {
+    background-color: #1e1d1d; /* Set the background color */
+    position: absolute;
+    top: 0;
+    right: -110%; /* Initially hide the menu off-screen */
+    width: 100vw;
+    height: 100vh;
+    transition: right 0.5s ease; /* Set the transition for the right property */
+    z-index: 40;
+  }
+  
+  .menu-mobile.open {
+    right: 0; /* Slide the menu into view */
+  }
+  

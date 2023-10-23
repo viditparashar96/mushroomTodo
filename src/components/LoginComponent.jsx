@@ -22,6 +22,7 @@ function LoginComponent() {
             }
         } catch (error) {
             console.log("err during login",error)
+            toast.error(error.message)
         }
   }
   return (

@@ -12,7 +12,7 @@ function AddMember() {
         try {
            const {email}=data
            const userId="653360b086b77eb5e51d"
-            teamService.addMember(teamId,["owner"],userId,email).then((res)=>{
+            teamService.addMember(teamId,["member"],userId,email).then((res)=>{
                 console.log("added",res)
                 toast.success("Invite sent successfully")
                
@@ -25,7 +25,7 @@ function AddMember() {
     }
   return (
     <div className=' w-full min-h-[80vh] flex items-center justify-center'>
-         <form className="mb-4 w-3/12 mx-auto text-center" onSubmit={handleSubmit(onSubmit)}>
+         <form className="mb-4 w-8/12 md:w-3/12 mx-auto text-center" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4   ">
             <label htmlFor="email" className="block text-xs mb-1">Email</label>
             <input

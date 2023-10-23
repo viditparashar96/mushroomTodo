@@ -3,7 +3,7 @@ import conf from './conf/conf'
 import { useDispatch } from 'react-redux'
 import authService from './appwrite/auth'
 import { login,logout } from './components/store/authSlice'
-import { Header,Footer } from './components'
+import { Header,Footer, Protected } from './components'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -16,6 +16,7 @@ import MyTeams from './pages/MyTeams'
 import Team from './pages/Team'
 import AddMember from './pages/AddMember'
 import AcceptInvitation from './pages/AcceptInvitation'
+import UpadateTeam from './pages/UpadateTeam'
 function App() {
   const [loading,setLoading] = useState(true)
   const dispatch = useDispatch()
@@ -33,7 +34,7 @@ function App() {
     }).finally(()=>setLoading(false))
   })
   return !loading ? 
-  (<div className=' min-h-screen flex flex-wrap content-between bg-[#141313] text-white'>
+  (<div className=' min-h-screen flex flex-wrap content-between bg-[#141313] text-white overflow-x-hidden'>
     
     <div className=' w-full block'>
     <Header/>
@@ -44,13 +45,15 @@ function App() {
         <Route path='/' element={<Home/>}/>
          <Route path='/login' element={<Login/>}/> 
          <Route path='/signup' element={<Signup/>}/> 
-         <Route path='/add-todo' element={<AddTodo/>}/> 
-         <Route path='/all-todos' element={<AllTodos/>}/> 
-        <Route path='/edit-todo/:slug' element={<EditTodo/>}/>
-        <Route path='/create-team' element={<CreateTeam/>}/>
-        <Route path='/my-teams' element={<MyTeams/>}/>
-        <Route path='/team/:teamId' element={<Team/>}/>
-        <Route path='/addmember/:teamId' element={<AddMember/>}/>
+         <Route path='/add-todo' element={<Protected><AddTodo/></Protected>}/> 
+         <Route path='/all-todos' element={<Protected><AllTodos/></Protected>}/> 
+        <Route path='/edit-todo/:slug' element={<Protected><EditTodo/></Protected>}/>
+        <Route path='/create-team' element={<Protected><CreateTeam/></Protected>}/>
+        <Route path='/my-teams' element={<Protected><MyTeams/></Protected>}/>
+        <Route path='/team/:teamId' element={<Protected><Team/></Protected>}/>
+        <Route path='/addmember/:teamId' element={<Protected><AddMember/></Protected>}/>
+        <Route path='/updateteam' element={<Protected><UpadateTeam/></Protected>}/>
+
         <Route path='/acceptinvitation' element={<AcceptInvitation/>}/>
 
 

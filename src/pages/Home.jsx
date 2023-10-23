@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 function Home() {
   return (
     <div className=' w-full min-h-[80vh]'>
-        <div className=' w-8/12 mx-auto h-full'>
+        <div className=' md:w-8/12 mx-auto h-full'>
           <div className=' text-center mt-4'>
           <h1 className="bg-gradient-to-r from-blue-300 via-purple-500 to-indigo-400 inline-block text-transparent bg-clip-text text-3xl mt-4 md:mt-0 md:text-6xl  font-semibold  ">Todo WebApp.</h1>
           </div>

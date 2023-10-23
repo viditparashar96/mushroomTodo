@@ -52,6 +52,10 @@ function GetAllTodo() {
     :
     (
         <div className=' flex items-center gap-6 mt-6 flex-wrap' >
+        {todos.length===0&& (
+            <h1 className=' text-2xl font-semibold text-center'>No Todos Found</h1>
+        
+        )}
         {todos?.map((todo,index)=>(
             <div className=' min-w-[300px]' key={index}>
   <Card className="md:min-w-[400px] min-w-[350px]  md:mx-0 bg-[#1c1c1c] text-white">

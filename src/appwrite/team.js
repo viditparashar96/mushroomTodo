@@ -32,12 +32,9 @@ export class TeamService{
             console.log("error in getTeam",error);
         }
     }
-    async updateTeam(teamId,{name,description}){
+    async updateTeam(teamId,name){
         try {
-            return await this.teams.update(teamId,{
-                name,
-                description,
-            });
+            return await this.teams.updateName(teamId,name);
         } catch (error) {
             console.log("error in updateTeam",error);
         }
@@ -69,7 +66,7 @@ export class TeamService{
         try {
             return await this.teams.updateMembershipStatus(teamId,membershipId,userId,secret);
         } catch (error) {
-            console.log("error in acceptInvitation",error);
+            throw error;
         }
 
     }

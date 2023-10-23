@@ -7,6 +7,7 @@ import CreateTodo from './CreateTodo';
 import GetAllTodo from './GetAllTodo';
 import ShareBtn from './ShareBtn';
 import TeamMembers from './TeamMembers';
+import Protected from './Authlayout';
 export{
     Header,
     Footer,
@@ -16,6 +17,7 @@ export{
     CreateTodo,
     GetAllTodo,
     ShareBtn,
-    TeamMembers
+    TeamMembers,
+    Protected
     
 }
