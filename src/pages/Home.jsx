@@ -1,26 +1,28 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import teamService from '../appwrite/team';
+import { useLocation } from 'react-router-dom';
 
 function Home() {
-//   useEffect(() => {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     const teamId = urlParams.get('teamId');
-//     const membershipId = urlParams.get('membershipId');
-//     const userId = urlParams.get('userId');
-//     const secret = urlParams.get('secret');
+  const location = useLocation();
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const teamId = urlParams.get('teamId');
+    const membershipId = urlParams.get('membershipId');
+    const userId = urlParams.get('userId');
+    const secret = urlParams.get('secret');
 
-//     // Use the extracted values as needed
+    // Use the extracted values as needed
    
-//     teamService.acceptInvitation(teamId,membershipId,userId,secret).then((res)=>{
-//         console.log("invitation accpeced",res)
-//     }).catch((err)=>{
-//         console.log("err",err)
-//         toast.error(err.message)
-//     })
-//     // Perform further actions with the extracted values
+    teamService.acceptInvitation(teamId,membershipId,userId,secret).then((res)=>{
+        console.log("invitation accpeced",res)
+    }).catch((err)=>{
+        console.log("err",err)
+        toast.error(err.message)
+    })
+    // Perform further actions with the extracted values
 
-// }, []);
+}, [location]);
   return (
     <div className=' w-full min-h-[80vh]'>
         <div className=' md:w-8/12 mx-auto h-full'>
